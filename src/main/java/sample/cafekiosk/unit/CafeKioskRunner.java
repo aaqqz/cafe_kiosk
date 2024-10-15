@@ -1,7 +1,11 @@
 package sample.cafekiosk.unit;
 
+import org.springframework.cglib.core.Local;
 import sample.cafekiosk.unit.beverage.Americano;
 import sample.cafekiosk.unit.beverage.Latte;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class CafeKioskRunner {
 
@@ -14,5 +18,7 @@ public class CafeKioskRunner {
 
         int totalPrice = cafeKiosk.calculateToTotalPrice();
         System.out.println("총 주문가격: " + totalPrice);
+
+        cafeKiosk.createOrder(LocalDateTime.now());
     }
 }
