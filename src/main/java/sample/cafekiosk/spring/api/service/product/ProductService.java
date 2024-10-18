@@ -21,6 +21,6 @@ public class ProductService {
 
         return products.stream()
                 .map(ProductResponse::of)
-                .collect(Collectors.toList());
+                .toList();
     }
 }
