@@ -1,6 +1,7 @@
 package sample.cafekiosk.spring.api.service.product;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import sample.cafekiosk.spring.api.controller.product.dto.request.ProductCreateRequest;
@@ -17,7 +18,7 @@ import java.util.List;
  * readOnly = true : 읽기전용
  * CRUD 에서 CUD 동작 X / only Read
  * JPA : CUD 스냅샷 저장, 변경감지 X (성능 향상)
- *
+ * <p>
  * CQRS - Command / Re ad
  */
 @Transactional(readOnly = true)
@@ -45,8 +46,8 @@ public class ProductService {
         List<Product> products = productRepository.findAllBySellingStatusIn(ProductSellingStatus.forDisplay());
 
         return products.stream()
-                .map(ProductResponse::of)
-                .toList();
+            .map(ProductResponse::of)
+            .toList();
     }
 
     private String createNextProductNumber() {

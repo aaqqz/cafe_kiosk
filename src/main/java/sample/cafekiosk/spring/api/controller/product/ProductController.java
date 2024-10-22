@@ -1,5 +1,6 @@
 package sample.cafekiosk.spring.api.controller.product;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,8 +19,8 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping("/api/v1/products/new")
-    public void createProduct(@RequestBody ProductCreateRequest request) {
-        productService.createProduct(request);
+    public ProductResponse createProduct(@Valid @RequestBody ProductCreateRequest request) {
+        return productService.createProduct(request);
     }
 
 
