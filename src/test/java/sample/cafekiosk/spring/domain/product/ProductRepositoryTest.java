@@ -8,9 +8,10 @@ import org.springframework.test.context.ActiveProfiles;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.tuple;
 import static sample.cafekiosk.spring.domain.product.ProductSellingStatus.*;
-import static sample.cafekiosk.spring.domain.product.ProductType.*;
+import static sample.cafekiosk.spring.domain.product.ProductType.HANDMADE;
 
 @ActiveProfiles("test")
 //@SpringBootTest // 권장
@@ -19,6 +20,7 @@ class ProductRepositoryTest  {
 
     @Autowired
     private ProductRepository productRepository;
+
 
     @DisplayName("원하는 판매상태를 가진 상품들을 조회한다.")
     @Test
