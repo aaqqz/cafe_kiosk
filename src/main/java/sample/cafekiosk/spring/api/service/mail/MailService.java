@@ -1,4 +1,4 @@
-package sample.cafekiosk.spring.api.service.main;
+package sample.cafekiosk.spring.api.service.mail;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -8,7 +8,7 @@ import sample.cafekiosk.spring.domain.history.mail.MailSendHistoryRepository;
 
 @RequiredArgsConstructor
 @Service
-public class MainService {
+public class MailService {
 
     private final MailSendClient mailSendClient;
     private final MailSendHistoryRepository mailSendHistoryRepository;
@@ -25,6 +25,10 @@ public class MainService {
                     .content(content)
                     .build()
             );
+            mailSendClient.a();
+            mailSendClient.b();
+            mailSendClient.c();
+
             return true;
         }
         return false;

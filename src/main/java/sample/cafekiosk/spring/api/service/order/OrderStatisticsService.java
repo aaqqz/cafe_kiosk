@@ -2,7 +2,7 @@ package sample.cafekiosk.spring.api.service.order;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import sample.cafekiosk.spring.api.service.main.MainService;
+import sample.cafekiosk.spring.api.service.mail.MailService;
 import sample.cafekiosk.spring.domain.order.Order;
 import sample.cafekiosk.spring.domain.order.OrderRepository;
 import sample.cafekiosk.spring.domain.order.OrderStatus;
@@ -15,7 +15,7 @@ import java.util.List;
 public class OrderStatisticsService {
 
     private final OrderRepository orderRepository;
-    private final MainService mainService;
+    private final MailService mainService;
 
     public boolean sendOrderStatisticsMail(LocalDate orderDate, String email) {
         // 해당 일자에 결제 완료된 주문들을 가져와서
